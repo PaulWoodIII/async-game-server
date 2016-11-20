@@ -12,27 +12,32 @@
 
 module.exports = {
 
-  /***************************************************************************
-   * Set the default database connection for models in the production        *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
+  models: {
+    connection: 'productionPostgresqlServer'
+  },
 
-  // models: {
-  //   connection: 'someMysqlServer'
-  // },
+  connections: {
+    productionPostgresqlServer: {
+      adapter: 'sails-postgresql',
+      url: process.env.DATABASE_URL,
+      ssl: true
+    }
+  },
 
-  /***************************************************************************
-   * Set the port in the production environment to 80                        *
-   ***************************************************************************/
+  session: {
+    adapter: 'redis',
+    url: process.env.REDISTOGO_URL
+  },
 
-  // port: 80,
+  sockets: {
+    adapter: 'socket.io-redis',
+    url: process.env.REDISTOGO_URL,
+  },
 
-  /***************************************************************************
-   * Set the log level in production environment to "silent"                 *
-   ***************************************************************************/
-
-  // log: {
-  //   level: "silent"
-  // }
+  mailgun: {
+    apiKey: process.env.MAILGUN_API_KEY,
+    domain: process.env.MAILGUN_DOMAIN,
+    baseUrl: process.env.MAILGUN_BASE_URL
+  },
 
 };

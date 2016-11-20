@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,22 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  'PUT /login': 'UserController.login',
+  'POST /logout': 'UserController.logout',
+  'GET /logout': 'PageController.logout',
 
+  'POST /user/signup': 'UserController.signup',
+  'PUT /user/remove-profile': 'UserController.removeProfile',
+  'PUT /user/restore-profile': 'UserController.restoreProfile',
+  'PUT /user/restore-gravatar-URL': 'UserController.restoreGravatarURL',
+  'PUT /user/update-profile': 'UserController.updateProfile',
+  'PUT /user/change-password': 'UserController.changePassword',
+  'GET /user/admin-users': 'UserController.adminUsers',
+  'PUT /user/update-admin/:id': 'UserController.updateAdmin',
+  'PUT /user/update-banned/:id': 'UserController.updateBanned',
+  'PUT /user/update-deleted/:id': 'UserController.updateDeleted',
+  'PUT /user/generate-recovery-email': 'UserController.generateRecoveryEmail',
+  'PUT /user/reset-password': 'UserController.resetPassword',
+  'PUT /user/follow': 'UserController.follow',
+  'PUT /user/unfollow': 'UserController.unFollow',
 };
